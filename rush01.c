@@ -63,6 +63,7 @@ void    ft_putnbr(int nb)
     else
         write_digits(nb);
 }
+
 int check(int argc, char **argv)
 {
 	if (argc != 2)
@@ -86,6 +87,7 @@ void *get_numbers(char *str, int *target)
 		i++;
 	}
 }
+
 int check_col_up(int board[4][4], int pos, int target[16])
 {
 	int i;
@@ -201,6 +203,7 @@ int check_case(int board[4][4], int pos, int target[16])
 		return (1);
 	return (0);
 }
+
 int check_double(int board[4][4], int pos, int size)
 {
 	int i;
@@ -221,6 +224,7 @@ int check_double(int board[4][4], int pos, int size)
 	}
 	return (0);
 }
+
 int solve(int board[4][4], int target[16], int pos)
 {
 	int size;
