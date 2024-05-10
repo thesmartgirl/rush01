@@ -1,4 +1,5 @@
-do u undertsnad the common functions or u need help with any of them?
+do u understand the common functions or u need help with any of them?
+what is the difference between i++ and ++i ?
 -------------------------------------------------------------------------
 
 what is argc, argv?
@@ -58,5 +59,3 @@ point to the point we are using backtracking ...
 :: ADVANCED ::
 do we have a memory leak?
 how did we test this?
-
-
