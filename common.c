@@ -40,7 +40,6 @@ int ft_atoi(char *str)
 	return (nbr * sign);
 }
 
-//prints a number in the standart output
 void ft_putnbr(int nb)
 {
 	unsigned int nbr;
@@ -48,11 +47,9 @@ void ft_putnbr(int nb)
 	if (nb < 0)
 	{
 		ft_putchar('-');
-		nbr = nb * -1;
+		nbr *= -1;
 	}
-	else
-		nbr = nb;
-	if (nbr / 10 != 0)
+	if (nbr > 10)
 		ft_putnbr(nbr / 10);
 	ft_putchar(nbr % 10 + 48);
 }
