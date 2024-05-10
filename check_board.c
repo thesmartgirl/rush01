@@ -1,30 +1,30 @@
-int check_col_up(int tab[4][4], int pos, int entry[16])
+int check_col_up(int board[4][4], int pos, int target[16])
 {
 	int i;
 	int max;
-	int count;
+	int visible_towers;
 
 	i = 0;
 	max = 0;
-	count = 0;
+	visible_towers = 0;
 	if (pos / 4 == 3)
 	{
 		while (i < 4)
 		{
-			if (tab[i][pos % 4] > max)
+			if (board[i][pos % 4] > max)
 			{
-				max = tab[i][pos % 4];
-				count++;
+				max = board[i][pos % 4];
+				visible_towers++;
 			}
 			i++;
 		}
-		if (entry[pos % 4] != count)
+		if (target[pos % 4] != visible_towers)
 			return (1);
 	}
 	return (0);
 }
 
-int check_row_right(int tab[4][4], int pos, int entry[16])
+int check_row_right(int board[4][4], int pos, int target[16])
 {
 	int i;
 	int max_size;
@@ -37,79 +37,79 @@ int check_row_right(int tab[4][4], int pos, int entry[16])
 	{
 		while (--i >= 0)
 		{
-			if (tab[pos / 4][i] > max_size)
+			if (board[pos / 4][i] > max_size)
 			{
-				max_size = tab[pos / 4][i];
+				max_size = board[pos / 4][i];
 				visible_towers++;
 			}
 		}
-		if (entry[12 + pos / 4] != visible_towers)
+		if (target[12 + pos / 4] != visible_towers)
 			return (1);
 	}
 	return (0);
 }
 
-int check_col_down(int tab[4][4], int pos, int entry[16])
+int check_col_down(int board[4][4], int pos, int target[16])
 {
 	int i;
 	int max;
-	int count;
+	int visible_towers;
 
 	i = 3;
 	max = 0;
-	count = 0;
+	visible_towers = 0;
 	if (pos / 4 == 3)
 	{
 		while (i >= 0)
 		{
-			if (tab[i][pos % 4] > max)
+			if (board[i][pos % 4] > max)
 			{
-				max = tab[i][pos % 4];
-				count++;
+				max = board[i][pos % 4];
+				visible_towers++;
 			}
 			i--;
 		}
-		if (entry[4 + pos % 4] != count)
+		if (target[4 + pos % 4] != visible_towers)
 			return (1);
 	}
 	return (0);
 }
 
-int check_row_left(int tab[4][4], int pos, int entry[16])
+int check_row_left(int board[4][4], int pos, int target[16])
 {
 	int i;
 	int max;
-	int count;
+	int visible_towers;
 
 	i = 0;
 	max = 0;
-	count = 0;
+	visible_towers = 0;
 	if (pos % 4 == 3)
 	{
 		while (i < 4)
 		{
-			if (tab[pos / 4][i] > max)
+			if (board[pos / 4][i] > max)
 			{
-				max = tab[pos / 4][i];
-				count++;
+				max = board[pos / 4][i];
+				visible_towers++;
 			}
 			i++;
 		}
-		if (entry[8 + pos / 4] != count)
+		if (target[8 + pos / 4] != visible_towers)
 			return (1);
 	}
 	return (0);
 }
 
-int check_case(int tab[4][4], int pos, int entry[16])
+int check_case(int board[4][4], int pos, int target[16])
 {
-	if (check_row_left(tab, pos, entry) == 1)
+	if (check_row_left(board, pos, target) == 1)
 		return (1);
-	if (check_row_right(tab, pos, entry) == 1)
+	if (check_row_right(board, pos, target) == 1)
 		return (1);
-	if (check_col_down(tab, pos, entry) == 1)
+	if (check_col_down(board, pos, target) == 1)
 		return (1);
-	if (check_col_up(tab, pos, entry) == 1)
+	if (check_col_up(board, pos, target) == 1)
 		return (1);
 	return (0);
 }
