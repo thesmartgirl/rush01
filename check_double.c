@@ -1,18 +1,18 @@
-int check_double(int tab[4][4], int pos, int num)
+int check_double(int board[4][4], int pos, int size)
 {
 	int i;
 
 	i = 0;
 	while (i < pos / 4)
 	{
-		if (tab[i][pos % 4] == num)
+		if (board[i][pos % 4] == size)
 			return (1);
 		i++;
 	}
 	i = 0;
 	while (i < pos % 4)
 	{
-		if (tab[pos / 4][i] == num)
+		if (board[pos / 4][i] == size)
 			return (1);
 		i++;
 	}

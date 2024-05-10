@@ -4,8 +4,8 @@ int solve(int board[4][4], int target[16], int pos)
 
 	if (pos == 16)
 		return (1);
-	size = 0;
-	while (++size <= 4)
+	size = 1;
+	while (size <= 4)
 	{
 		if (check_double(board, pos, size) == 0)
 		{
@@ -18,6 +18,7 @@ int solve(int board[4][4], int target[16], int pos)
 			else
 				board[pos / 4][pos % 4] = 0;
 		}
+    size++;
 	}
 	return (0);
 }
