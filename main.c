@@ -1,9 +1,7 @@
-int solve(int board[4][4], int target[16])
+int solve(int board[4][4], int target[16], int pos)
 {
 	int size;
-	int pos;
 
-	pos = 0;
 	if (pos == 16)
 		return (1);
 	size = 0;
@@ -48,8 +46,11 @@ int main(int argc, char **argv)
   int target[16] = {0};
 
 	if (check(argc, argv) == 1)
-		return (0);
-	target = get_numbers(argv[1]);
+  {
+		ft_putstr("Error\n");
+    return (0);
+  }
+	get_numbers(argv[1], target);
 
 	if (solve(board, target, 0) == 1)
 		display_solution(board);
